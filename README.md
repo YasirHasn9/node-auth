@@ -16,3 +16,9 @@ database so we can use knex to commend it.
 
 8.run in your terminal npx knex migrate:make init
 (init = shortcut for initial)
+
+9.create a table using migrations
+10.after creating your table run ##npx knex migrate:latest
+11.in our case we created a new table called users to add it up to db
+we need to rollback by ##npx knex migrate:rollback
+and then ##npx knex migrate:latest
