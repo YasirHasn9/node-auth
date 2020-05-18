@@ -34,4 +34,6 @@ make
 "server": "nodemon index.js"
 },
 
-12.read through files 
+12.read through files
+
+13.install the bcryptjs library for hashing the password
