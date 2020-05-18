@@ -26,3 +26,10 @@ and then ##npx knex migrate:latest
 10.create seed // this is optional read about it https://knexjs.org/
 
 11.build the server
+12.install nodemon so we can run the server on every change automatically
+13.configure the package.json
+
+make
+"scripts": {
+"server": "nodemon index.js"
+},
