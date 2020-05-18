@@ -22,3 +22,7 @@ database so we can use knex to commend it.
 11.in our case we created a new table called users to add it up to db
 we need to rollback by ##npx knex migrate:rollback
 and then ##npx knex migrate:latest
+
+10.create seed // this is optional read about it https://knexjs.org/
+
+11.build the server
