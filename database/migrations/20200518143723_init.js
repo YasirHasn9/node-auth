@@ -17,7 +17,7 @@ exports.up = async function(knex) {
       .notNullable()
       .unique()
       .index(); // index fastens the search for the user
-
+    tbl.string("password", 256).notNullable();
     tbl
       .integer("role")
       .unsigned()
