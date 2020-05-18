@@ -33,3 +33,5 @@ make
 "scripts": {
 "server": "nodemon index.js"
 },
+
+12.read through files 
