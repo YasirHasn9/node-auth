@@ -1,4 +1,4 @@
-// it is best practice to separate your logic in different file so 
+// it is best practice to separate your logic in different file so
 // it can be clean , easy to fix and also dry
 const db = require("../database/connections");
 
@@ -12,14 +12,25 @@ function find() {
   );
 }
 function findBy(filter) {
-    // looking into the db to find the user with whatever is @param filter
+  // looking into the db to find the user with whatever is @param filter
   return db("users")
     .where(filter)
     .orderBy("id");
 }
 
+async function add(user) {
+  try {
+    //   this is always gonna return an array
+    // this is why im using the array destructors [id]
+    const [id] = await db("users").insert(user, "id");
 
+    return findById(id);
+  } catch (error) {
+    throw error;
+  }
+}
 module.exports = {
   find,
-  findBy
+  findBy,
+  add
 };
