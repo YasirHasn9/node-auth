@@ -58,4 +58,17 @@ router.post("/login", (req, res) => {
   }
 });
 
+router.get("/logout", (req, res) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        res.status(500).json({ message: err });
+      } else {
+        res.status(204).end();
+      }
+    });
+  } else {
+    res.status(204).end();
+  }
+});
 module.exports = router;
