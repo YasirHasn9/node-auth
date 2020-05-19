@@ -25,6 +25,7 @@ router.post("/register", (req, res) => {
         res.status(201).json({ data: user });
       })
       .catch(err => {
+        console.log("from rout", err);
         res.status(500).json({ message: err.message });
       });
   } else {
