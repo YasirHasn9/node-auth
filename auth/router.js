@@ -43,6 +43,8 @@ router.post("/login", (req, res) => {
       .then(user => {
         // check the guessed password with hashed one
         if (user && bcrypt.compare(password, user.password)) {
+          req.session.loggedIn = true;
+          res.session.user = user;
           res.status(200).json({ message: `Welcome ${user.username}` });
         } else {
           res.status(401).json({ message: "Invalid credentials" });
