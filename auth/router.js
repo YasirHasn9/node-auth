@@ -33,4 +33,28 @@ router.post("/register", (req, res) => {
   }
 });
 
+router.post("/login", (req, res) => {
+  // this is what user typing in
+  const { username, password } = req.body;
+  if (isValid(req.body)) {
+    // we are making sure that we have the user by their usernames
+    Users.findBy({ username })
+      .first() //  we can do this on the db model but in some cases we dont need to do that
+      .then(user => {
+        console.log("Useer", user);
+        // check the guessed password with hashed one
+        if (user && bcrypt.compare(password, user.password)) {
+          res.status(200).json({ message: `Welcome ${user.username}` });
+        } else {
+          res.status(401).json({ message: "Invalid credentials" });
+        }
+      })
+      .catch(err => {
+        res.status(500).json({ message: err.message });
+      });
+  } else {
+    res.status(400).json({ message: "Please provide username and password" });
+  }
+});
+
 module.exports = router;
