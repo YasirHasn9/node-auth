@@ -41,7 +41,6 @@ router.post("/login", (req, res) => {
     Users.findBy({ username })
       .first() //  we can do this on the db model but in some cases we dont need to do that
       .then(user => {
-        console.log("Useer", user);
         // check the guessed password with hashed one
         if (user && bcrypt.compare(password, user.password)) {
           res.status(200).json({ message: `Welcome ${user.username}` });

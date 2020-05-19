@@ -37,3 +37,19 @@ make
 12.read through files
 
 13.install the bcryptjs library for hashing the password
+
+14.hash the password 
+
+15.use session to produces cookies 
+what is cookies ? 
+is a container of key/value of data that travels between the server and client
+
+what is session?
+is a way to store information about the client on the sever
+-lives in the memory of the server once we restart the server it gets lost 
+   so isn t best practice to store on the server
+
+the api server will create session for the client that produces cookies 
+
+to store the cookies in the session , there a library called express-session
+that would help us to do that for us
