@@ -29,8 +29,14 @@ async function add(user) {
     throw error;
   }
 }
+function findById(id) {
+  return db("users")
+    .where({ id })
+    .first();
+}
 module.exports = {
   find,
   findBy,
-  add
+  add,
+  findById
 };
